@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>批判性阅读 - 标签 - 我的AI奥德赛之旅</title>
+    <link>http://localhost:1313/zh-cn/tags/%E6%89%B9%E5%88%A4%E6%80%A7%E9%98%85%E8%AF%BB/</link>
+    <description>Jiezi&#39;s blog on AI with a focus on personalized LLM applications and AI Alignment.</description>
+    <generator>Hugo 0.140.2 &amp; FixIt v0.3.16-f66dc32e</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Tue, 24 Dec 2024 07:42:33 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/zh-cn/tags/%E6%89%B9%E5%88%A4%E6%80%A7%E9%98%85%E8%AF%BB/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>从文献速读到批判性阅读</title>
+      <link>http://localhost:1313/zh-cn/posts/paper-critic-series-1/</link>
+      <pubDate>Tue, 24 Dec 2024 07:42:33 +0000</pubDate><author>ai4fun2004@gmail.com (杰子)</author>
+      <guid>http://localhost:1313/zh-cn/posts/paper-critic-series-1/</guid>
+      <category domain="http://localhost:1313/zh-cn/categories/project/">Project</category>
+      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;http://localhost:1313/paper_critics_series/lots-of-readings.jpg&#34; alt=&#34;/paper_critics_series/lots-of-readings.jpg&#34; srcset=&#34;http://localhost:1313/paper_critics_series/lots-of-readings.jpg?size=small, http://localhost:1313/paper_critics_series/lots-of-readings.jpg?size=medium 1.5x, http://localhost:1313/paper_critics_series/lots-of-readings.jpg?size=large 2x&#34; data-title=&#34;Lots of Readings&#34; style=&#34;--width: 1024px;--aspect-ratio: 1024 / 1024;background: url(/images/loading.min.svg) no-repeat center;&#34; onload=&#34;this.title=this.dataset.title;for(const i of [&#39;style&#39;, &#39;data-title&#39;,&#39;onerror&#39;,&#39;onload&#39;]){this.removeAttribute(i);}this.dataset.lazyloaded=&#39;&#39;;&#34; onerror=&#34;this.title=this.dataset.title;for(const i of [&#39;style&#39;, &#39;data-title&#39;,&#39;onerror&#39;,&#39;onload&#39;]){this.removeAttribute(i);}&#34;/&gt;&lt;/p&gt;&#xA;&lt;p&gt;读书时，我导经常说起他读博时，最令人闻风丧胆的是博一考试——即所谓资格考，称称斤两，判断你是不是做研究的那块料。形式倒也简单，首先给出相关领域的文献列表，里面的文献大多是该领域的重要研究、关键发展，正是相关专业的主攻方向，甚至可能是学校里某位大佬的作品；然后每个学生认领一篇，为期一周准备，最终向评委会汇报答辩。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

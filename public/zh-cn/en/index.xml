@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>所有en - 我的AI奥德赛之旅</title>
+    <link>http://localhost:4040/zh-cn/en/</link>
+    <description>我的AI奥德赛之旅</description>
+    <generator>Hugo 0.139.2 &amp; FixIt v0.3.16-f66dc32e</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Fri, 29 Nov 2024 07:41:24 +0000</lastBuildDate>
+    <atom:link href="http://localhost:4040/zh-cn/en/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hello World</title>
+      <link>http://localhost:4040/zh-cn/en/posts/hello-world/</link>
+      <pubDate>Fri, 29 Nov 2024 07:41:24 +0000</pubDate>
+      <guid>http://localhost:4040/zh-cn/en/posts/hello-world/</guid>
+      <description>Hello World</description>
+    </item>
+  </channel>
+</rss>

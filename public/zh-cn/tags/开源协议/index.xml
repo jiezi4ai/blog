@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>开源协议 - 标签 - 我的AI奥德赛之旅</title>
+    <link>http://localhost:1313/zh-cn/tags/%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE/</link>
+    <description>Jiezi&#39;s blog on AI with a focus on personalized LLM applications and AI Alignment.</description>
+    <generator>Hugo 0.140.2 &amp; FixIt v0.3.16-f66dc32e</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Tue, 24 Dec 2024 07:42:33 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/zh-cn/tags/%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>我的“拥抱开源”第一课（上）</title>
+      <link>http://localhost:1313/zh-cn/posts/opensource-abcs-to-developers/</link>
+      <pubDate>Tue, 24 Dec 2024 07:42:33 +0000</pubDate><author>ai4fun2004@gmail.com (杰子)</author>
+      <guid>http://localhost:1313/zh-cn/posts/opensource-abcs-to-developers/</guid>
+      <category domain="http://localhost:1313/zh-cn/categories/analysis/">Analysis</category>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;杰子注：本文为个人学习开源系列第一篇，主要聚集在开源的意义、开源的理念沿革、开源协议等方面。未来还将进一步探讨开源的协作方式与工作、开源生态、个人开发者的最佳实践等话题。&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;相信许多朋友和我一样，作为使用者，少不得要学习参照Github等一些平台上的开源代码；作为开发者，一些项目工作也会直接或间接的开放给他人、贡献到开源社区。那么开源究竟指的是什么？参与开源意味着什么？其中又有哪些游戏规则需要遵守？&lt;/p&gt;&#xA;&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;http://localhost:1313/opensource_abcs/open-source-word-cloud.png&#34; alt=&#34;/opensource_abcs/open-source-word-cloud.png&#34; srcset=&#34;http://localhost:1313/opensource_abcs/open-source-word-cloud.png?size=small, http://localhost:1313/opensource_abcs/open-source-word-cloud.png?size=medium 1.5x, http://localhost:1313/opensource_abcs/open-source-word-cloud.png?size=large 2x&#34; data-title=&#34;OpenSource Words Cloud&#34; style=&#34;--width: 1019px;--aspect-ratio: 1019 / 519;background: url(/images/loading.min.svg) no-repeat center;&#34; onload=&#34;this.title=this.dataset.title;for(const i of [&#39;style&#39;, &#39;data-title&#39;,&#39;onerror&#39;,&#39;onload&#39;]){this.removeAttribute(i);}this.dataset.lazyloaded=&#39;&#39;;&#34; onerror=&#34;this.title=this.dataset.title;for(const i of [&#39;style&#39;, &#39;data-title&#39;,&#39;onerror&#39;,&#39;onload&#39;]){this.removeAttribute(i);}&#34;/&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

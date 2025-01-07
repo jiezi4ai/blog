@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Draft - 分类 - 我的AI奥德赛之旅</title>
+    <link>http://localhost:4040/zh-cn/categories/draft/</link>
+    <description>Jiezi&#39;s blog on AI with a focus on personalized LLM applications and AI Alignment.</description>
+    <generator>Hugo 0.139.2 &amp; FixIt v0.3.16-f66dc32e</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Wed, 27 Nov 2024 07:42:33 +0000</lastBuildDate>
+    <atom:link href="http://localhost:4040/zh-cn/categories/draft/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hello World</title>
+      <link>http://localhost:4040/zh-cn/posts/hello-world/</link>
+      <pubDate>Wed, 27 Nov 2024 07:42:33 +0000</pubDate>
+      <guid>http://localhost:4040/zh-cn/posts/hello-world/</guid>
+      <category domain="http://localhost:4040/zh-cn/categories/draft/">Draft</category>
+      <description>&lt;p&gt;大家好，&lt;strong&gt;杰子的博客&lt;/strong&gt;正式开站了，欢迎大家和我一起踏上这趟充满挑战，但又激动人心的&lt;em&gt;AI奥德赛之旅&lt;/em&gt;！&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,102 @@
+baseURL = 'https://jiezi4ai.site:4040/'
+languageCode = 'en-us'
+title = 'My New Hugo Site'
+theme = 'FixIt'
+
+defaultContentLanguage = 'zh-cn'
+defaultContentLanguageInSubdir = true
+
+[languages]
+  [languages.zh-cn]
+    contentDir = 'content/zh-cn'
+    disabled = false
+    languageCode = 'zh-CN'     # 网站语言，仅在这里 CN 大写
+    languageDirection = 'ltr'
+    languageName = '简体中文'
+    hasCJKLanguage = true      # 是否包括中日韩文字
+    title = '我的AI奥德赛之旅'
+    weight = 2
+    [languages.zh-cn.params]
+      subtitle = '我的灵魂啊，现在且慢着些性子吧，你曾见过比这更困难的事'
+
+    # 目录设置
+    [[languages.zh-cn.menu.main]]
+      identifier = "posts"
+      pre = ""
+      post = ""
+      name = "文章"
+      url = "/posts/"
+      title = ""
+      weight = 1
+    [[languages.zh-cn.menu.main]]
+      identifier = "tags"
+      pre = ""
+      post = ""
+      name = "标签"
+      url = "/tags/"
+      title = ""
+      weight = 2
+    [[languages.zh-cn.menu.main]]
+      identifier = "categories"
+      pre = ""
+      post = ""
+      name = "分类"
+      url = "/categories/"
+      title = ""
+      weight = 3
+
+  [languages.en]
+    contentDir = 'content/en'
+    disabled = false
+    languageCode = 'en-US'
+    languageDirection = 'ltr'
+    languageName = 'English'
+    title = 'My Odyssey towards AI'
+    weight = 1
+    [languages.en.params]
+      subtitle = 'Bear up, my soul, thou hast endured worse'
+
+    # toc setup
+    [[languages.en.menu.main]]
+      identifier = "posts"
+      pre = ""
+      post = ""
+      name = "Posts"
+      url = "/posts/"
+      title = ""
+      weight = 1
+    [[languages.en.menu.main]]
+      identifier = "tags"
+      pre = ""
+      post = ""
+      name = "Tags"
+      url = "/tags/"
+      title = ""
+      weight = 2
+    [[languages.en.menu.main]]
+      identifier = "categories"
+      pre = ""
+      post = ""
+      name = "Categories"
+      url = "/categories/"
+      title = ""
+      weight = 3
+
+
+[params]
+  description = "Jiezi's blog on AI with a focus on personalized LLM applications and AI Alignment."
+  keywords = ["AI", "LLM", "knowledge graph", "AI Alignment", "人工智能", "大模型", "知识图谱", "人机对齐"]
+
+  [params.cookieconsent]
+    enable = false
+    [params.cookieconsent.content]
+      message = ""
+      dismiss = ""
+      link = ""
+
+[markup]
+  _merge = "shallow"
+[outputs]
+  _merge = "shallow"
+[taxonomies]
+  _merge = "shallow"

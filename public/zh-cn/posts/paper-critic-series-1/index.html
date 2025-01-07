@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+    <meta name="robots" content="noodp" />
+    <title>从文献速读到批判性阅读 - 我的AI奥德赛之旅</title><meta name="author" content="杰子">
+<meta name="description" content="
+读书时，我导经常说起他读博时，最令人闻风丧胆的是博一考试——即所谓资格考，称称斤两，判断你是不是做研究的那块料。形式倒也简单，首先给出相关领域的文献列表，里面的文献大多是该领域的重要研究、关键发展，正是相关专业的主攻方向，甚至可能是学校里某位大佬的作品；然后每个学生认领一篇，为期一周准备，最终向评委会汇报答辩。
+"><meta name="keywords" content='批判性阅读, paper critique, AI for Research'>
+  <meta itemprop="name" content="从文献速读到批判性阅读">
+  <meta itemprop="description" content="读书时，我导经常说起他读博时，最令人闻风丧胆的是博一考试——即所谓资格考，称称斤两，判断你是不是做研究的那块料。形式倒也简单，首先给出相关领域的文献列表，里面的文献大多是该领域的重要研究、关键发展，正是相关专业的主攻方向，甚至可能是学校里某位大佬的作品；然后每个学生认领一篇，为期一周准备，最终向评委会汇报答辩。">
+  <meta itemprop="datePublished" content="2024-12-24T07:42:33+00:00">
+  <meta itemprop="dateModified" content="2024-12-24T07:42:33+00:00">
+  <meta itemprop="wordCount" content="3045">
+  <meta itemprop="keywords" content="批判性阅读,paper critique,AI for Research"><meta property="og:url" content="http://localhost:1313/zh-cn/posts/paper-critic-series-1/">
+  <meta property="og:site_name" content="我的AI奥德赛之旅">
+  <meta property="og:title" content="从文献速读到批判性阅读">
+  <meta property="og:description" content="读书时，我导经常说起他读博时，最令人闻风丧胆的是博一考试——即所谓资格考，称称斤两，判断你是不是做研究的那块料。形式倒也简单，首先给出相关领域的文献列表，里面的文献大多是该领域的重要研究、关键发展，正是相关专业的主攻方向，甚至可能是学校里某位大佬的作品；然后每个学生认领一篇，为期一周准备，最终向评委会汇报答辩。">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-12-24T07:42:33+00:00">
+    <meta property="article:modified_time" content="2024-12-24T07:42:33+00:00">
+    <meta property="article:tag" content="批判性阅读">
+    <meta property="article:tag" content="Chat Paper">
+    <meta property="article:tag" content="Paper Critique">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="从文献速读到批判性阅读">
+  <meta name="twitter:description" content="读书时，我导经常说起他读博时，最令人闻风丧胆的是博一考试——即所谓资格考，称称斤两，判断你是不是做研究的那块料。形式倒也简单，首先给出相关领域的文献列表，里面的文献大多是该领域的重要研究、关键发展，正是相关专业的主攻方向，甚至可能是学校里某位大佬的作品；然后每个学生认领一篇，为期一周准备，最终向评委会汇报答辩。">
+<meta name="application-name" content="FixIt">
+<meta name="apple-mobile-web-app-title" content="FixIt"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="canonical" type="text/html" href="http://localhost:1313/zh-cn/posts/paper-critic-series-1/" title="从文献速读到批判性阅读 - 我的AI奥德赛之旅" /><link rel="prev" type="text/html" href="http://localhost:1313/zh-cn/posts/opensource-abcs-to-developers/" title="我的“拥抱开源”第一课（上）" /><link rel="alternate" type="text/markdown" href="http://localhost:1313/zh-cn/posts/paper-critic-series-1/index.md" title="从文献速读到批判性阅读 - 我的AI奥德赛之旅"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "headline": "从文献速读到批判性阅读",
+    "inLanguage": "zh-CN",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "http:\/\/localhost:1313\/zh-cn\/posts\/paper-critic-series-1\/"
+    },"genre": "posts","keywords": "批判性阅读, chat paper, paper critique","wordcount":  3045 ,
+    "url": "http:\/\/localhost:1313\/zh-cn\/posts\/paper-critic-series-1\/","datePublished": "2024-12-24T07:42:33+00:00","dateModified": "2024-12-24T07:42:33+00:00","publisher": {
+      "@type": "Organization",
+      "name": ""},"author": {
+        "@type": "Person",
+        "name": "杰子"
+      },"description": ""
+  }
+  </script><script src="/js/head/color-scheme.min.js"></script></head>
+  <body data-header-desktop="sticky" data-header-mobile="auto"><div class="wrapper" data-page-style="normal"><header class="desktop animate__faster" id="header-desktop">
+  <div class="header-wrapper">
+    <div class="header-title">
+      <a href="/zh-cn/" title="我的AI奥德赛之旅"><span class="header-title-text">我的AI奥德赛之旅</span></a><span class="header-subtitle"></span></div>
+    <nav>
+      <ul class="menu"><li class="menu-item">
+              <a class="menu-link" href="/zh-cn/posts/">文章</a></li><li class="menu-item">
+              <a class="menu-link" href="/zh-cn/tags/">标签</a></li><li class="menu-item">
+              <a class="menu-link" href="/zh-cn/categories/">分类</a></li><li class="menu-item delimiter"></li><li class="menu-item theme-switch" title="切换主题">
+          <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+        </li><li class="menu-item language-switch">
+            <span role="button" aria-label="选择语言" title="选择语言"><i class="fa-solid fa-language fa-fw" aria-hidden="true"></i></span>
+            <ul class="sub-menu"><li class="menu-item">没有更多翻译</li></ul>
+          </li></ul>
+    </nav>
+  </div>
+</header><header class="mobile animate__faster" id="header-mobile">
+  <div class="header-container">
+    <div class="header-wrapper">
+      <div class="header-title">
+        <a href="/zh-cn/" title="我的AI奥德赛之旅"><span class="header-title-text">我的AI奥德赛之旅</span></a><span class="header-subtitle"></span></div>
+      <div class="menu-toggle" id="menu-toggle-mobile">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <nav>
+      <ul class="menu" id="menu-mobile"><li class="menu-item"><a class="menu-link" href="/zh-cn/posts/">文章</a></li><li class="menu-item"><a class="menu-link" href="/zh-cn/tags/">标签</a></li><li class="menu-item"><a class="menu-link" href="/zh-cn/categories/">分类</a></li><li class="menu-item menu-system">
+          <span class="menu-system-item theme-switch" title="切换主题"><i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i></span><span class="menu-system-item language-switch">
+              <span role="button" aria-label="选择语言" title="选择语言">简体中文<i class="dropdown-icon fa-solid fa-chevron-down" aria-hidden="true"></i></span>
+              <select class="language-select" onchange="location = this.value;"><option disabled>没有更多翻译</option></select>
+            </span></li>
+      </ul>
+    </nav>
+  </div>
+</header><main class="container"><aside class="aside-collection animate__animated animate__fadeIn animate__faster" aria-label="合集"></aside>
+
+  <article class="page single">
+    <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span title="转载" class="icon-repost"><i class="fa-solid fa-share fa-fw" aria-hidden="true"></i></span><span>从文献速读到批判性阅读</span>
+      </h1><p class="single-subtitle animate__animated animate__fadeIn">Paper Critic项目笔记之一</p></div><div class="post-meta">
+      <div class="post-meta-line"><span class="post-author"><span class="author"><i class="fa-solid fa-user-circle" aria-hidden="true"></i>
+      杰子</span></span><span class="post-included-in">&nbsp;收录于 <a href="/zh-cn/categories/project/" class="post-category" title="分类 - Project"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Project</a></span></div><div class="post-meta-line"><span title="发布于 2024-12-24 07:42:33"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="2024-12-24">2024-12-24</time></span>&nbsp;<span title="3045 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 3100 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 7 分钟</span>&nbsp;</div>
+    </div><div class="details toc" id="toc-static" data-kept="false">
+        <div class="details-summary toc-title">
+          <span>目录</span>
+          <span><i class="details-icon fa-solid fa-angle-right" aria-hidden="true"></i></span>
+        </div>
+        <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#驱动案例关于tot的批判性阅读">驱动案例：关于ToT的批判性阅读</a></li>
+    <li><a href="#批判性来源">批判性来源</a></li>
+    <li><a href="#调研与分析">调研与分析</a>
+      <ul>
+        <li><a href="#文献阅读类">文献阅读类</a></li>
+        <li><a href="#文献评论类">文献评论类</a></li>
+        <li><a href="#检索综述类">检索综述类</a></li>
+      </ul>
+    </li>
+    <li><a href="#框架与结构">框架与结构</a></li>
+  </ul>
+</nav></div>
+      </div><div class="content" id="content"><p><img loading="lazy" src="/paper_critics_series/lots-of-readings.jpg" alt="/paper_critics_series/lots-of-readings.jpg" srcset="/paper_critics_series/lots-of-readings.jpg?size=small, /paper_critics_series/lots-of-readings.jpg?size=medium 1.5x, /paper_critics_series/lots-of-readings.jpg?size=large 2x" data-title="Lots of Readings" style="--width: 1024px;--aspect-ratio: 1024 / 1024;background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p>读书时，我导经常说起他读博时，最令人闻风丧胆的是博一考试——即所谓资格考，称称斤两，判断你是不是做研究的那块料。形式倒也简单，首先给出相关领域的文献列表，里面的文献大多是该领域的重要研究、关键发展，正是相关专业的主攻方向，甚至可能是学校里某位大佬的作品；然后每个学生认领一篇，为期一周准备，最终向评委会汇报答辩。</p>
+<p>看着简单吧？可汇报时，评委会大佬云集，运气好点/不好点，文献的作者也在场，大家围绕文献和相关研究，批评指摘，且问出一堆刁钻古怪的问题，极容易挂在台上。得，大侠您重新来过，或者科研不适合，您还是换条路吧。这么一来，搞得学生们特别紧张。一周时间里，只看这篇文献肯定不够，你得理解这个研究主题吧，那该文献研究领域的基础理论、发展脉络、最新进展你得了然于胸不是？既然是重要文献，那么这篇文献前前后后引用的和被引的文献你得有所了解吧？大佬们好指摘，那你也得展现出批判性思考吧，关于文献的优劣、启发、意义你得说出个子丑寅卯来吧？更不用说关于这篇文献的一些具体实现和细节，如方法论、实验设计、结果评估、复现与推广等，延展开来哪个不是一大堆的活儿？</p>
+<p>虽然让人难以招架，但这种old school的训练确实对于深度阅读和理解还是有很大帮助的。AI研究日新月异，如今有许多“文献快报”、“文献速读”的工具，方便我们快速了解最新的进展和应用；另一方面，对重要文献“慢读”、“精读”、“细读”的支持性工具却并不多见，而毋庸置疑，对关键文献的研读，恰能起到提纲挈领、举一反三的作用。因此，我想打造一款Paper Critic的AI工具，以支持科研工作者对文献的深入批判性阅读。</p>
+<h2 id="驱动案例关于tot的批判性阅读" class="heading-element"><span>驱动案例：关于ToT的批判性阅读</span>
+  <a href="#%e9%a9%b1%e5%8a%a8%e6%a1%88%e4%be%8b%e5%85%b3%e4%ba%8etot%e7%9a%84%e6%89%b9%e5%88%a4%e6%80%a7%e9%98%85%e8%af%bb" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p>以“<a href="https://arxiv.org/abs/2305.10601"target="_blank" rel="external nofollow noopener noreferrer">Tree of Thoughts: Deliberate Problem Solving with Large Language Models</a>”为例，1 年半内该文献引用量已达1000+，文献动机和逻辑清晰，数据结果漂亮，也是我很喜欢的一个研究。它沿袭了大模型推理领域奠基之作Chain-of-Thought的思路，基于prompting方法，将大模型在复杂任务上的推理过程扩展为思路拆解、采样、评估的树状搜索模式，后续的研究也大多采用了类似的框架，可谓承上启下。总之，这是一篇优秀的研究，但我们不妨吹毛求疵一些，看看通过哪些渠道和方式，可以更深入的洞察和深挖这篇文章。</p>
+<ul>
+<li>
+<p>既然这篇文献研究的是大模型推理（LLM Reasoning），属于prompting一脉，那么与之最为直接相关的CoT、Self-CoT / Auto-CoT、Graph-of-Thought等XoT系列的对比来看，本文在算法上的异同，研究的定位、价值是什么？针对以上问题，可以阅读引用与被引文献来辅助理解。</p>
+</li>
+<li>
+<p>聚焦在算法上，ToT将大模型推理过程转换为一个蒙特卡罗树搜索（Monte Carlo Tree Search）的过程，这种思路也是引导大模型推理的主流思路，不论是prompting方式引导，或是生成语料直接训练/微调。在此过程中，如何提高大模型作为样本生成者、样本评估者的能力？确保大模型生成和评估的有效性（effectiveness）和有效率（efficiency），这其中可能涉及生成环节的奖励函数/寻优函数的设计和学习、评估环节的LLM-as-Judge等主题。</p>
+</li>
+<li>
+<p>从实验来看，ToT一文显示算法在实验上取得了显著提升，且文章提供了Game of 24、creative writing、mini crossword等不同类型的实验，覆盖了数值分析、写作等领域。但如果更苛求一些，可以挑战的问题有：算法在不同场景上是否还有赖于人的设计与适配（framing）？在 24 点游戏和mini crossword上表现出来的显著提升，是来自于MCTS式的采样还是来自于大模型内在的思考？如果进一步扩展到略复杂的任务上，是否仍然能够有较优表现？如果前两者（ToT算法适配有赖于人工设计、扩展到复杂任务上表现下滑）为真，那么它和传统检索算法实际的优势和区别在哪里？在这些问题上，<a href="https://medium.com/@konstantine_45825/llm-prompting-and-classical-ai-budding-romance-or-a-tango-with-two-left-feet-bc7e3800facd"target="_blank" rel="external nofollow noopener noreferrer">Konstantine Arkoudas写了一篇绝佳的博文分析</a>，无疑可以用于参考。</p>
+</li>
+<li>
+<p>了解到这篇文章被NeurIPS 2023录用，那么可以进一步检索文章的同行评议信息，参照评议中的challenges和作者的rebuttal，可以对文章的一些关键难点有更深入的理解。</p>
+</li>
+<li>
+<p>当然，如果进一步扩展的话，可以考虑以下素材和内容：如大模型推理的另一脉，即随着OpenAI O1而大火的基于预训练、微调而提升大模型推理能力的相关研究，如Let&rsquo;s verify step-by-step乃至近期的Coconut(Chain of Continuous Thought)都可以做了解；如关于大模型推理的成本与收益之争，以及推理中的inference scaling law；乃至更深一层的，大模型能够思考与不能思考，它只是在模仿语料中的类似推理分析的结构和步骤，还是真的“涌现”出的内在的逻辑与思考机制？</p>
+</li>
+</ul>
+<h2 id="批判性来源" class="heading-element"><span>批判性来源</span>
+  <a href="#%e6%89%b9%e5%88%a4%e6%80%a7%e6%9d%a5%e6%ba%90" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p>参照以上人工进行批判性阅读和分析的思路机理，如果我们希望AI来辅助这一过程，则应当具备以下条件：</p>
+<ul>
+<li>
+<p>语料。我认可“在同样语料下，同等尺寸的大模型能力趋于收敛”这一观点。在批判性阅读和分析上，丰富而充分的语料起决定性的作用。就AI研究领域而言，一些可供使用和探索的语料包括：</p>
+<ul>
+<li>文献库，如Arxiv、SemanticScholar、Google Scholar等，可用于检索、阅读论文和论文的关联文献，理解主题沿袭与对照分析。Connected Papers和Litmaps可以辅助快速定位相关的重要文献。</li>
+<li>同行评议数据如OpenReview，虽然网上不断有置疑部分评委的专业度，但如此公开的评审意见、作者反馈，这样第一手的讨论与交流信息非常难得，可以提供很多分析的视角。不过可惜的是，目前OpenReview支持的仅有部分会议论文。Alphaxiv提供了很棒的围绕论文读者和作者交互的途径，可惜上线不久，同样可惜数据不多。</li>
+<li>写作平台如Medium.com或一些博客上，经常会有关于特定论文的深入分析与探讨；一些社交媒体如reddit.com、twitter.com、hackernews.com等上，围绕一些有影响力的工作，也往往会有讨论和交流。上述两种类型信息较为繁芜，常常有很多基础性的介绍、推广、说明等，但也不乏深刻的洞见与观点。</li>
+</ul>
+</li>
+<li>
+<p>引导与分析过程。大模型具备了通识能力，缺乏目标指向性；prompting引导大模型聚焦（同样也是一种attention），以追求其能力上限。prompting也是一个炼丹的过程，可以考虑以下几种形态：</p>
+<ul>
+<li>给定任务和要求，但不做强提示与说明，主要依赖大模型自身的能力来完成批判性分析的过程。</li>
+<li>将引导与分析设计为一个大模型推理和思考的过程，通过chain-of-thought、tree-of-thought、divide-and-conquer等思路，策略性的引导大模型每次聚焦一个子主题，逐步完成阅读与分析过程。</li>
+<li>使用agent重构“检索-阅读-分析-评估”流程，将检索、RAG等工具化，由大模型来组织和串联端到端的阅读与分析、总结过程。</li>
+</ul>
+</li>
+<li>
+<p>理解与分析能力。这里考验的是大模型的基础能力，涉及任务可以拆解为：a.需要大模型基本的文本处理、文本理解与总结归纳；b. 需要大模型更专业的分析与反思。作为学术写作，要严格避免大模型的幻觉，或说车轱辘话的情况。</p>
+</li>
+</ul>
+<h2 id="调研与分析" class="heading-element"><span>调研与分析</span>
+  <a href="#%e8%b0%83%e7%a0%94%e4%b8%8e%e5%88%86%e6%9e%90" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p>为了避免重复造轮子，有必要对市面上的相似与相关产品做个简单的调研分析。</p>
+<h3 id="文献阅读类" class="heading-element"><span>文献阅读类</span>
+  <a href="#%e6%96%87%e7%8c%ae%e9%98%85%e8%af%bb%e7%b1%bb" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><h3 id="文献评论类" class="heading-element"><span>文献评论类</span>
+  <a href="#%e6%96%87%e7%8c%ae%e8%af%84%e8%ae%ba%e7%b1%bb" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><h3 id="检索综述类" class="heading-element"><span>检索综述类</span>
+  <a href="#%e6%a3%80%e7%b4%a2%e7%bb%bc%e8%bf%b0%e7%b1%bb" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><h2 id="框架与结构" class="heading-element"><span>框架与结构</span>
+  <a href="#%e6%a1%86%e6%9e%b6%e4%b8%8e%e7%bb%93%e6%9e%84" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p>至此，Paper Critic这一AI辅助文献批判性阅读的框架与结构就呼之欲出了。</p>
+</div><div class="post-footer" id="post-footer">
+  <div class="post-info">
+    <div class="post-info-line">
+      <div class="post-info-mod">
+        <span title="更新于 2024-12-24 07:42:33">更新于 2024-12-24&nbsp;</span>
+      </div><div class="post-info-license">
+            <span>CC BY-NC-SA 4.0</span>
+          </div></div><div class="post-info-line">
+        <div class="post-info-md"><span><a href="/zh-cn/posts/paper-critic-series-1/index.md" title="阅读原始文档" class="link-to-markdown">阅读原始文档</a></span></div>
+        <div class="post-info-share">
+          <span><a href="javascript:void(0);" title="分享到 X" data-sharer="twitter" data-url="http://localhost:1313/zh-cn/posts/paper-critic-series-1/" data-title="从文献速读到批判性阅读" data-hashtags="批判性阅读,chat paper,paper critique"><i class="fa-brands fa-x-twitter fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="http://localhost:1313/zh-cn/posts/paper-critic-series-1/" data-hashtag="批判性阅读"><i class="fa-brands fa-facebook-square fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="http://localhost:1313/zh-cn/posts/paper-critic-series-1/" data-title="从文献速读到批判性阅读"><i class="fa-brands fa-weibo fa-fw" aria-hidden="true"></i></a>
+  </span>
+        </div>
+      </div></div>
+
+  <div class="post-info-more">
+    <section class="post-tags"><i class="fa-solid fa-tags fa-fw me-1" aria-hidden="true"></i><a href="/zh-cn/tags/%E6%89%B9%E5%88%A4%E6%80%A7%E9%98%85%E8%AF%BB/" class="post-tag" title="标签 - 批判性阅读">批判性阅读</a><a href="/zh-cn/tags/chat-paper/" class="post-tag" title="标签 - Chat Paper">Chat Paper</a><a href="/zh-cn/tags/paper-critique/" class="post-tag" title="标签 - Paper Critique">Paper Critique</a></section>
+    <section>
+      <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/zh-cn/">主页</a></span>
+    </section>
+  </div><div class="post-nav"><a href="/zh-cn/posts/opensource-abcs-to-developers/" class="post-nav-item" rel="prev" title="我的“拥抱开源”第一课（上）"><i class="fa-solid fa-angle-left fa-fw" aria-hidden="true"></i>我的“拥抱开源”第一课（上）</a></div>
+</div>
+</article>
+
+  <aside class="toc" id="toc-auto" aria-label="目录"><h2 class="toc-title">目录&nbsp;<i class="toc-icon fa-solid fa-angle-down fa-fw" aria-hidden="true"></i></h2>
+      <div class="toc-content" id="toc-content-auto"></div></aside></main><footer class="footer">
+    <div class="footer-container"><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.140.2"><img class="hugo-icon" src="/images/hugo.min.svg" alt="Hugo logo" /> Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.3.16-f66dc32e"><img class="fixit-icon" src="/images/fixit.min.svg" alt="FixIt logo" /> FixIt</a>
+        </div><div class="footer-line copyright" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
+            <span itemprop="copyrightYear">2025</span><span class="author" itemprop="copyrightHolder">
+              <a href="/zh-cn/"></a></span></div></div>
+  </footer></div><div class="widgets"><div class="fixed-buttons animate__faster d-none"><div class="fixed-button back-to-top" role="button" aria-label="回到顶部"><i class="fa-solid fa-arrow-up fa-fw" aria-hidden="true"></i><span class="variant-numeric d-none">0%</span>
+        </div></div><div id="mask"></div><noscript>
+    <div class="noscript-warning">该网站在启用 JavaScript 的情况下效果最佳。</div>
+  </noscript>
+</div><script src="/lib/twemoji/twemoji.min.js" defer></script><script src="/lib/sharer/sharer.min.js" async defer></script><script>window.config={"code":{"copyTitle":"复制到剪贴板","editLockTitle":"锁定可编辑代码块","editUnLockTitle":"解锁可编辑代码块","editable":true,"maxShownLines":10},"comment":{"enable":false},"twemoji":true,"version":"v0.3.16-f66dc32e"};console.log('Page config:', window.config);</script><script src="/js/theme.min.js" defer></script></body>
+</html>
