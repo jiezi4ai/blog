@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+    <meta name="robots" content="noodp" />
+    <title>OpenReview 深度分析（一）：基础概念与逻辑 - 我的AI奥德赛之旅</title><meta name="author" content="杰子">
+<meta name="description" content="
+AI及大模型领域的研究层出不穷。在有限的精力下，对大部分的新研究可以略读————粗通其义即可，但对于一些重要的研究则有必要精读，并对文献进行更批判性、更辩证的思考。恰好，Openreivew网站为文献精读提供了很好的辅助，尤其是它公开呈现了同行评议与论文作者抗辩的信息，从而可以让我们借助不同的视角，关注在此研究中同行聚焦的一些问题和挑战，以及围绕这些问题上作者的说明和思考。[1]
+本文的写作，是我作为AI学习者，试图将Openreview中的分析和讨论，整合到文献阅读和思考过程中去；同时作为个人开发者，我也希望将此过程工具化：即能够以底层数据交互的形式自动获取相关文献的评审与讨论，进而结合SemanticScholar等文献检索工具、Zotero等文献管理工具，实现在文献上的端到端的个人知识管理。此外，作为算法爱好者，我也将尝试理解和探索OpenReview背后的理念与机制，如它的开放性审议理念、审稿分配机制等。
+"><meta name="keywords" content='OpenReivew, peer review, 同行评议'>
+  <meta itemprop="name" content="OpenReview 深度分析（一）：基础概念与逻辑">
+  <meta itemprop="description" content="AI及大模型领域的研究层出不穷。在有限的精力下，对大部分的新研究可以略读————粗通其义即可，但对于一些重要的研究则有必要精读，并对文献进行更批判性、更辩证的思考。恰好，Openreivew网站为文献精读提供了很好的辅助，尤其是它公开呈现了同行评议与论文作者抗辩的信息，从而可以让我们借助不同的视角，关注在此研究中同行聚焦的一些问题和挑战，以及围绕这些问题上作者的说明和思考。[1]
+本文的写作，是我作为AI学习者，试图将Openreview中的分析和讨论，整合到文献阅读和思考过程中去；同时作为个人开发者，我也希望将此过程工具化：即能够以底层数据交互的形式自动获取相关文献的评审与讨论，进而结合SemanticScholar等文献检索工具、Zotero等文献管理工具，实现在文献上的端到端的个人知识管理。此外，作为算法爱好者，我也将尝试理解和探索OpenReview背后的理念与机制，如它的开放性审议理念、审稿分配机制等。">
+  <meta itemprop="datePublished" content="2025-01-01T07:42:33+00:00">
+  <meta itemprop="dateModified" content="2025-01-01T07:42:33+00:00">
+  <meta itemprop="wordCount" content="2214">
+  <meta itemprop="keywords" content="OpenReivew,peer review,同行评议"><meta property="og:url" content="http://localhost:1313/zh-cn/posts/openreview-analysis-series-1/">
+  <meta property="og:site_name" content="我的AI奥德赛之旅">
+  <meta property="og:title" content="OpenReview 深度分析（一）：基础概念与逻辑">
+  <meta property="og:description" content="AI及大模型领域的研究层出不穷。在有限的精力下，对大部分的新研究可以略读————粗通其义即可，但对于一些重要的研究则有必要精读，并对文献进行更批判性、更辩证的思考。恰好，Openreivew网站为文献精读提供了很好的辅助，尤其是它公开呈现了同行评议与论文作者抗辩的信息，从而可以让我们借助不同的视角，关注在此研究中同行聚焦的一些问题和挑战，以及围绕这些问题上作者的说明和思考。[1]
+本文的写作，是我作为AI学习者，试图将Openreview中的分析和讨论，整合到文献阅读和思考过程中去；同时作为个人开发者，我也希望将此过程工具化：即能够以底层数据交互的形式自动获取相关文献的评审与讨论，进而结合SemanticScholar等文献检索工具、Zotero等文献管理工具，实现在文献上的端到端的个人知识管理。此外，作为算法爱好者，我也将尝试理解和探索OpenReview背后的理念与机制，如它的开放性审议理念、审稿分配机制等。">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-01-01T07:42:33+00:00">
+    <meta property="article:modified_time" content="2025-01-01T07:42:33+00:00">
+    <meta property="article:tag" content="OpenReivew">
+    <meta property="article:tag" content="Peer Review">
+    <meta property="article:tag" content="同行评审">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="OpenReview 深度分析（一）：基础概念与逻辑">
+  <meta name="twitter:description" content="AI及大模型领域的研究层出不穷。在有限的精力下，对大部分的新研究可以略读————粗通其义即可，但对于一些重要的研究则有必要精读，并对文献进行更批判性、更辩证的思考。恰好，Openreivew网站为文献精读提供了很好的辅助，尤其是它公开呈现了同行评议与论文作者抗辩的信息，从而可以让我们借助不同的视角，关注在此研究中同行聚焦的一些问题和挑战，以及围绕这些问题上作者的说明和思考。[1]
+本文的写作，是我作为AI学习者，试图将Openreview中的分析和讨论，整合到文献阅读和思考过程中去；同时作为个人开发者，我也希望将此过程工具化：即能够以底层数据交互的形式自动获取相关文献的评审与讨论，进而结合SemanticScholar等文献检索工具、Zotero等文献管理工具，实现在文献上的端到端的个人知识管理。此外，作为算法爱好者，我也将尝试理解和探索OpenReview背后的理念与机制，如它的开放性审议理念、审稿分配机制等。">
+<meta name="application-name" content="FixIt">
+<meta name="apple-mobile-web-app-title" content="FixIt"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="canonical" type="text/html" href="http://localhost:1313/zh-cn/posts/openreview-analysis-series-1/" title="OpenReview 深度分析（一）：基础概念与逻辑 - 我的AI奥德赛之旅" /><link rel="prev" type="text/html" href="http://localhost:1313/zh-cn/posts/paper-critic-series-1/" title="从文献速读到批判性阅读" /><link rel="alternate" type="text/markdown" href="http://localhost:1313/zh-cn/posts/openreview-analysis-series-1/index.md" title="OpenReview 深度分析（一）：基础概念与逻辑 - 我的AI奥德赛之旅"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "headline": "OpenReview 深度分析（一）：基础概念与逻辑",
+    "inLanguage": "zh-CN",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "http:\/\/localhost:1313\/zh-cn\/posts\/openreview-analysis-series-1\/"
+    },"genre": "posts","keywords": "OpenReivew, peer review, 同行评审","wordcount":  2214 ,
+    "url": "http:\/\/localhost:1313\/zh-cn\/posts\/openreview-analysis-series-1\/","datePublished": "2025-01-01T07:42:33+00:00","dateModified": "2025-01-01T07:42:33+00:00","publisher": {
+      "@type": "Organization",
+      "name": ""},"author": {
+        "@type": "Person",
+        "name": "杰子"
+      },"description": ""
+  }
+  </script><script src="/js/head/color-scheme.min.js"></script></head>
+  <body data-header-desktop="sticky" data-header-mobile="auto"><div class="wrapper" data-page-style="normal"><header class="desktop animate__faster" id="header-desktop">
+  <div class="header-wrapper">
+    <div class="header-title">
+      <a href="/zh-cn/" title="我的AI奥德赛之旅"><span class="header-title-text">我的AI奥德赛之旅</span></a><span class="header-subtitle"></span></div>
+    <nav>
+      <ul class="menu"><li class="menu-item">
+              <a class="menu-link" href="/zh-cn/posts/">文章</a></li><li class="menu-item">
+              <a class="menu-link" href="/zh-cn/tags/">标签</a></li><li class="menu-item">
+              <a class="menu-link" href="/zh-cn/categories/">分类</a></li><li class="menu-item delimiter"></li><li class="menu-item theme-switch" title="切换主题">
+          <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+        </li><li class="menu-item language-switch">
+            <span role="button" aria-label="选择语言" title="选择语言"><i class="fa-solid fa-language fa-fw" aria-hidden="true"></i></span>
+            <ul class="sub-menu"><li class="menu-item">没有更多翻译</li></ul>
+          </li></ul>
+    </nav>
+  </div>
+</header><header class="mobile animate__faster" id="header-mobile">
+  <div class="header-container">
+    <div class="header-wrapper">
+      <div class="header-title">
+        <a href="/zh-cn/" title="我的AI奥德赛之旅"><span class="header-title-text">我的AI奥德赛之旅</span></a><span class="header-subtitle"></span></div>
+      <div class="menu-toggle" id="menu-toggle-mobile">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <nav>
+      <ul class="menu" id="menu-mobile"><li class="menu-item"><a class="menu-link" href="/zh-cn/posts/">文章</a></li><li class="menu-item"><a class="menu-link" href="/zh-cn/tags/">标签</a></li><li class="menu-item"><a class="menu-link" href="/zh-cn/categories/">分类</a></li><li class="menu-item menu-system">
+          <span class="menu-system-item theme-switch" title="切换主题"><i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i></span><span class="menu-system-item language-switch">
+              <span role="button" aria-label="选择语言" title="选择语言">简体中文<i class="dropdown-icon fa-solid fa-chevron-down" aria-hidden="true"></i></span>
+              <select class="language-select" onchange="location = this.value;"><option disabled>没有更多翻译</option></select>
+            </span></li>
+      </ul>
+    </nav>
+  </div>
+</header><main class="container"><aside class="aside-collection animate__animated animate__fadeIn animate__faster" aria-label="合集"></aside>
+
+  <article class="page single">
+    <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span title="转载" class="icon-repost"><i class="fa-solid fa-share fa-fw" aria-hidden="true"></i></span><span>OpenReview 深度分析（一）：基础概念与逻辑</span>
+      </h1><p class="single-subtitle animate__animated animate__fadeIn">打造个人的文献知识管理系统</p></div><div class="post-meta">
+      <div class="post-meta-line"><span class="post-author"><span class="author"><i class="fa-solid fa-user-circle" aria-hidden="true"></i>
+      杰子</span></span><span class="post-included-in">&nbsp;收录于 <a href="/zh-cn/categories/project/" class="post-category" title="分类 - Project"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Project</a></span></div><div class="post-meta-line"><span title="发布于 2025-01-01 07:42:33"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="2025-01-01">2025-01-01</time></span>&nbsp;<span title="2214 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 2300 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 5 分钟</span>&nbsp;</div>
+    </div><div class="details toc" id="toc-static" data-kept="false">
+        <div class="details-summary toc-title">
+          <span>目录</span>
+          <span><i class="details-icon fa-solid fa-angle-right" aria-hidden="true"></i></span>
+        </div>
+        <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#基本理念从开放文献到开放评议">基本理念：从开放文献到开放评议</a></li>
+    <li><a href="#重要概念与代码building-blocks">重要概念与代码building blocks</a></li>
+    <li><a href="#参考">参考</a></li>
+  </ul>
+</nav></div>
+      </div><div class="content" id="content"><p><img loading="lazy" src="/openreview_analysis/openreview_logo.png" alt="/openreview_analysis/openreview_logo.png" srcset="/openreview_analysis/openreview_logo.png?size=small, /openreview_analysis/openreview_logo.png?size=medium 1.5x, /openreview_analysis/openreview_logo.png?size=large 2x" data-title="OpenReview Logo" style="--width: 550px;--aspect-ratio: 550 / 108;background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p>AI及大模型领域的研究层出不穷。在有限的精力下，对大部分的新研究可以略读————粗通其义即可，但对于一些重要的研究则有必要精读，并对文献进行更批判性、更辩证的思考。恰好，<a href="https://openreview.net/"target="_blank" rel="external nofollow noopener noreferrer">Openreivew</a>网站为文献精读提供了很好的辅助，尤其是它公开呈现了同行评议与论文作者抗辩的信息，从而可以让我们借助不同的视角，关注在此研究中同行聚焦的一些问题和挑战，以及围绕这些问题上作者的说明和思考。[1]</p>
+<p>本文的写作，是我作为AI学习者，试图将Openreview中的分析和讨论，整合到文献阅读和思考过程中去；同时作为个人开发者，我也希望将此过程工具化：即能够以底层数据交互的形式自动获取相关文献的评审与讨论，进而结合SemanticScholar等文献检索工具、Zotero等文献管理工具，实现在文献上的端到端的个人知识管理。此外，作为算法爱好者，我也将尝试理解和探索OpenReview背后的理念与机制，如它的开放性审议理念、审稿分配机制等。</p>
+<p>基于以上目的，本文将划分为三部分，其中第一部分将介绍OpenReview的基础概念与逻辑，并说明如何使用官方的API获取重要的数据；第二部分侧重于围绕OpenReview数据的系统化应用，并推介我封装后的OpenReview工具（开源），旨在实现端到端的知识管理；第三部分将分析OpenReview背后的理念与机制，并探讨平台重要的算法如“文章-评委”关联度评分（affinity score）、文章推荐/分配等涉及的机器学习、运筹学算法等。</p>
+<h2 id="基本理念从开放文献到开放评议" class="heading-element"><span>基本理念：从开放文献到开放评议</span>
+  <a href="#%e5%9f%ba%e6%9c%ac%e7%90%86%e5%bf%b5%e4%bb%8e%e5%bc%80%e6%94%be%e6%96%87%e7%8c%ae%e5%88%b0%e5%bc%80%e6%94%be%e8%af%84%e8%ae%ae" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p>即便在费用承担上等问题上仍有争议，但开放文献（open access）普遍被认为有助于促进知识的共享及科研上的交流与协作。如预印网站<a href="https://arxiv.org/"target="_blank" rel="external nofollow noopener noreferrer">Arxiv</a>有效支持了如AI、生物医疗等快速发展和更新的研究领域，备受科研者和学习者的青睐。</p>
+<p>既然文献可以开放，那么关于文献的评审信息（Peer Review）是否应当开放？这些信息应当对谁开放（to whom）？什么时候开放（when）？多大程度上开放（what）？这是OpenReivew.org尝试回答的问题。OpenReivew秉持的基本理念是：首先，文献的传播与文献的评估/审议应当相分离，这样无需等待漫长的审稿读者就可以及时找到最新的研究；其次，OpenReivew将开放的选择权（who / when / what）交给期刊、会议的组织方，并从平台和工具层面有力的支持评审信息的开放。[2]</p>
+<p>在我看来，OpenReview的主要特色有：</p>
+<ul>
+<li>一是它的开放性。它开放面向各种组织（如会议、期刊，乃至学期作业等）在平台上设置venue，完成评审决议过程；同时它也支持提交文章和评审信息的开放，并将选择权交给组织方。</li>
+<li>二是它的高效和专业性。一方面，平台聚拢了一批各领域上的专业人士与研究者；另一方面，平台开发了一系列的推荐机制和算法，支持将待审议的论文推荐给对应领域的研究者（作为评委），以实现有质量的、高效的同行审议。 <br>
+关于具体的机制和算法，我将在“OpenReview 深度分析（三）：机制与算法”中做更详细的讨论。</li>
+</ul>
+<p>除了以上对组织方的支持，OpenReview对论文作者和学习者的价值还包括：</p>
+<ul>
+<li>从论文作者的角度，以OpenReview作为平台可以更好的管理论文投递、与审稿人的意见交互、修订完善与抗辩等工作；</li>
+<li>对于论文阅读者而言，关于AI领域的一些重要会议，OpenReview平台上的论文及同行评议数据完全开放，无疑是借助不同视角更深入理解文献的利器；</li>
+<li>此外，OpenReivew平台提供的工具也全部开源，意味着底层可以借助其数据、API/SDK等做进一步的开发和连接，以更便利的使用OpenReview上的资源和数据。</li>
+</ul>
+<h2 id="重要概念与代码building-blocks" class="heading-element"><span>重要概念与代码building blocks</span>
+  <a href="#%e9%87%8d%e8%a6%81%e6%a6%82%e5%bf%b5%e4%b8%8e%e4%bb%a3%e7%a0%81building-blocks" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p><strong>基础流程图</strong>
+在发起活动、征收论文和评议流程上，OpenReview提供的支持如下图所示：
+<figure><img loading="lazy" src="/openreview_analysis/openreview_process_flow.png" alt="OpenReview的工作流与论文评审过程一致，在各个环节上提供了工具支持。" srcset="/openreview_analysis/openreview_process_flow.png?size=small, /openreview_analysis/openreview_process_flow.png?size=medium 1.5x, /openreview_analysis/openreview_process_flow.png?size=large 2x" data-title="OpenReview Workflow" style="--width: 1646px;--aspect-ratio: 1646 / 614;background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/><figcaption class="image-caption">OpenReview的工作流与论文评审过程一致，在各个环节上提供了工具支持。</figcaption>
+  </figure></p>
+<ul>
+<li>发起：组织方在OpenReview上注册并发起活动，设置关键时间节点，招募相关人员（如领域主席、评委等 ）；</li>
+<li>提交：论文作者提交论文并登记信息。论文提交后，组织方可借助OpenReview提供的工具，评估论文与评委的相关度（affinity score），并进一步将论文推荐/分配给不同的评委；同时，OpenReview也支持评委在无利益冲突的情况下申请评审某论文（bidding）。</li>
+<li>评审：和常规的评审流程一样，一般是多位评委独立对论文打分，并给出评审意见；作者有机会抗辩并进一步解释说明；给定时间内多轮交互后，评委可修订最终打分，作者也可以根据评委意见进一步修订；组织方最后做关于文章的meta review。
+评审决议独立于论文的传播，即组织方可决定论文在提交后即开放，而不是等到评审决议后再开放。</li>
+<li>决议：评议环节结束后，领域主席给出最终评审意见，做最后的刊印前修订。</li>
+</ul>
+<h2 id="参考" class="heading-element"><span>参考</span>
+  <a href="#%e5%8f%82%e8%80%83" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p>[1] OpenReview官方帮助文档参见: <a href="https://docs.openreview.net/"target="_blank" rel="external nofollow noopener noreferrer">https://docs.openreview.net/</a>。关于OpenReivew的简要说明可参见：https://openreview.net/about。
+[2] OpenReivew肇始于2013年ICML的一个Peer Reviewing and Publishing Models的工作会议上，同时它作为平台也支持了ICML会议的评审过程。 关于OpenReivew的理念，以及OpenReview支持此次会议的实证研究结果可参见<a href="https://openreview.net/pdf?id=xf0zSBd2iufMg"target="_blank" rel="external nofollow noopener noreferrer">此文章</a>，相关的讨论进一步<a href="https://openreview.net/forum?id=xf0zSBd2iufMg"target="_blank" rel="external nofollow noopener noreferrer">参见此处</a></p></div><div class="post-footer" id="post-footer">
+  <div class="post-info">
+    <div class="post-info-line">
+      <div class="post-info-mod">
+        <span title="更新于 2025-01-01 07:42:33">更新于 2025-01-01&nbsp;</span>
+      </div><div class="post-info-license">
+            <span>CC BY-NC-SA 4.0</span>
+          </div></div><div class="post-info-line">
+        <div class="post-info-md"><span><a href="/zh-cn/posts/openreview-analysis-series-1/index.md" title="阅读原始文档" class="link-to-markdown">阅读原始文档</a></span></div>
+        <div class="post-info-share">
+          <span><a href="javascript:void(0);" title="分享到 X" data-sharer="twitter" data-url="http://localhost:1313/zh-cn/posts/openreview-analysis-series-1/" data-title="OpenReview 深度分析（一）：基础概念与逻辑" data-hashtags="OpenReivew,peer review,同行评审"><i class="fa-brands fa-x-twitter fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="http://localhost:1313/zh-cn/posts/openreview-analysis-series-1/" data-hashtag="OpenReivew"><i class="fa-brands fa-facebook-square fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="http://localhost:1313/zh-cn/posts/openreview-analysis-series-1/" data-title="OpenReview 深度分析（一）：基础概念与逻辑"><i class="fa-brands fa-weibo fa-fw" aria-hidden="true"></i></a>
+  </span>
+        </div>
+      </div></div>
+
+  <div class="post-info-more">
+    <section class="post-tags"><i class="fa-solid fa-tags fa-fw me-1" aria-hidden="true"></i><a href="/zh-cn/tags/openreivew/" class="post-tag" title="标签 - OpenReivew">OpenReivew</a><a href="/zh-cn/tags/peer-review/" class="post-tag" title="标签 - Peer Review">Peer Review</a><a href="/zh-cn/tags/%E5%90%8C%E8%A1%8C%E8%AF%84%E5%AE%A1/" class="post-tag" title="标签 - 同行评审">同行评审</a></section>
+    <section>
+      <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/zh-cn/">主页</a></span>
+    </section>
+  </div><div class="post-nav"><a href="/zh-cn/posts/paper-critic-series-1/" class="post-nav-item" rel="prev" title="从文献速读到批判性阅读"><i class="fa-solid fa-angle-left fa-fw" aria-hidden="true"></i>从文献速读到批判性阅读</a></div>
+</div>
+</article>
+
+  <aside class="toc" id="toc-auto" aria-label="目录"><h2 class="toc-title">目录&nbsp;<i class="toc-icon fa-solid fa-angle-down fa-fw" aria-hidden="true"></i></h2>
+      <div class="toc-content" id="toc-content-auto"></div></aside></main><footer class="footer">
+    <div class="footer-container"><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.140.2"><img class="hugo-icon" src="/images/hugo.min.svg" alt="Hugo logo" /> Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.3.16-f66dc32e"><img class="fixit-icon" src="/images/fixit.min.svg" alt="FixIt logo" /> FixIt</a>
+        </div><div class="footer-line copyright" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
+            <span itemprop="copyrightYear">2025</span><span class="author" itemprop="copyrightHolder">
+              <a href="/zh-cn/"></a></span></div></div>
+  </footer></div><div class="widgets"><div class="fixed-buttons animate__faster d-none"><div class="fixed-button back-to-top" role="button" aria-label="回到顶部"><i class="fa-solid fa-arrow-up fa-fw" aria-hidden="true"></i><span class="variant-numeric d-none">0%</span>
+        </div></div><div id="mask"></div><noscript>
+    <div class="noscript-warning">该网站在启用 JavaScript 的情况下效果最佳。</div>
+  </noscript>
+</div><script src="/lib/twemoji/twemoji.min.js" defer></script><script src="/lib/sharer/sharer.min.js" async defer></script><script>window.config={"code":{"copyTitle":"复制到剪贴板","editLockTitle":"锁定可编辑代码块","editUnLockTitle":"解锁可编辑代码块","editable":true,"maxShownLines":10},"comment":{"enable":false},"twemoji":true,"version":"v0.3.16-f66dc32e"};console.log('Page config:', window.config);</script><script src="/js/theme.min.js" defer></script></body>
+</html>

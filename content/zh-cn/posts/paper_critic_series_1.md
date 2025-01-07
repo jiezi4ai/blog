@@ -43,7 +43,7 @@ twemoji: true
 # See details front matter: https://fixit.lruihao.cn/documentation/content-management/introduction/#front-matter
 ---
 
-![](/paper_critics_series/lots-of-readings.jpg "Lots of Readings")
+![](/paper_critics_series/lots-of-readings.png "Lots of Readings")
 
 读书时，我导经常说起他读博时，最令人闻风丧胆的是博一考试——即所谓资格考，称称斤两，判断你是不是做研究的那块料。形式倒也简单，首先给出相关领域的文献列表，里面的文献大多是该领域的重要研究、关键发展，正是相关专业的主攻方向，甚至可能是学校里某位大佬的作品；然后每个学生认领一篇，为期一周准备，最终向评委会汇报答辩。
 
