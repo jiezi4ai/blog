@@ -78,6 +78,11 @@ AI及大模型领域的研究层出不穷。在有限的精力下，对大部分
   评审决议独立于论文的传播，即组织方可决定论文在提交后即开放，而不是等到评审决议后再开放。
 - 决议：评议环节结束后，领域主席给出最终评审意见，做最后的刊印前修订。
 
+**重要概念：Groups / Venues**
+[Group](https://docs.openreview.net/getting-started/using-the-api/groups)可视为一个虚拟组织，它是venue的发起方，现实中对应于会议、期刊等活动的相关人员（如组织人员、评委、主席等）。
+在OpenReview，每个用户可以对应于多个group中，并担任不同的角色如Reviewers, Area Chairs, Action Editors, etc.
+
+Venue指具体的某一次会议、某一届大会的workshop、某一次期刊的征文等活动。在OpenReivew中，用户可以发起venues，登记活动信息，确认主题与时间，并关联group member或通过OpenReview公开招募reviewer，并维护和管理论文提交与评审信息等。发起活动的流程可参见：https://docs.openreview.net/workflows/conferences
 
 ## 参考
 [1] OpenReview官方帮助文档参见: https://docs.openreview.net/。关于OpenReivew的简要说明可参见：https://openreview.net/about。
